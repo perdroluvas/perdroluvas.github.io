@@ -1,0 +1,60 @@
+<div class="flex space-between">
+  {% assign sorted_cats = site.categories | sort %}
+  <div class="dont-shrink">
+    <span class="all-small-caps muted">Browse</span>
+    <ul class="no-padding none-list no-margin">
+      {% for cat in sorted_cats %}
+      <li>
+        <a href="/{{ cat[0] | slugify: site.slugify_mode }}">{{cat[0] | escape}}</a>
+      </li>
+      {% endfor %}
+      {% assign tags_page = site.pages | where: "permalink", "/tags" %}
+      {% if tags_page.size > 0 %}
+      <li>
+        <a href={{ "/tags" | relative_url }}>{{ tags_page[0].title | default: "Tags" }}</a>
+      </li>
+      {% endif %}
+    </ul>
+  </div>
+
+  <div class="dont-shrink right">
+    <span class="all-small-caps muted no-visibility">Pages</span>
+    <ul class="none-list no-padding no-margin">
+      <li><a href="{{ "/" | relative_url }}">Home</a></li>
+      {% assign about_page = site.pages | where: "permalink", "/about" %}
+      {% if about_page.size > 0 %}
+      <li>
+        <a href={{ "/about" | relative_url }}>{{ about_page[0].title | default: "About" }}</a>
+      </li>
+      {% endif %}
+    </ul>
+
+    {% comment %}
+    https://web.dev/external-anchors-use-rel-noopener/ In general, when you use target="_blank", always add rel="noopener". The rel="noopener" prevents the new page from being able to access the window.opener property and ensures it runs in a separate process.
+    {% endcomment %}
+
+    <div class="top-spacer">
+      {%- if site.github.username.size > 0 -%}
+      <a href="https://github.com/{{ site.github.username }}" target="_blank" rel="noopener">{%- include svg.html icon="github" class="spot-icon" params="aria-label='GitHub'" -%}</a>
+      {%- endif -%}
+      {%- if site.linkedin.username.size > 0 -%}
+      <a href="https://linkedin.com/in/{{ site.linkedin.username }}" target="_blank" rel="noopener">{%- include svg.html icon="linkedin" class="spot-icon" params="aria-label='LinkedIn'" -%}</a>
+      {%- endif -%}
+      
+      <a href="/feed.xml">{%- include svg.html icon="rss" class="spot-icon" params="aria-label='Atom/RSS Feed'" -%}</a>
+    </div>
+  </div>
+
+</div>
+
+<div class="flex space-between stack-on-mobile muted small top-xx-spacer">
+  <span class="dont-shrink">
+    © <span id="copyright-year">2020</span> {{ site.author.name }}
+  </span>
+
+  <span class="dont-shrink right">
+    Powered by <a href="https://github.com/lucasrla/papicu">Papicu</a>, a Jekyll Theme 
+    &nbsp;&#183;&nbsp;
+    <a href="{{ "/thanks" | relative_url }}">Colophon</a>
+  </span>
+</div>

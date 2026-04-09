@@ -1,0 +1,120 @@
+################################# SITE INFO
+
+title: "perdro"
+tagline: "perdro's devblog"
+description: "A personal devblog by perdro — thoughts on code, projects, and things I'm learning."
+url: https://perdroluvas.github.io
+email: "plbsa.dev@gmail.com"
+
+github:
+  username: "perdroluvas"
+
+linkedin:
+  username: ""
+
+author:
+  name: "perdro"
+  url: https://perdroluvas.github.io
+  email: "plbsa.dev@gmail.com"
+
+lang: en
+locale: en_US
+
+################################# THEME COLORS
+
+colors:
+  background_light: "#fafafa"
+  background_dark: "#111111"
+  favicon_safari_mask_icon: "#5ac8fa"
+
+################################# JEKYLL-FEED
+
+feed:
+  posts_limit: 20
+
+################################# JEKYLL PLUGINS
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-optional-front-matter
+  - jekyll-redirect-from
+  - jekyll-archives
+
+################################# KRAMDOWN
+
+kramdown:
+  footnote_backlink_inline: true
+
+################################# JEKYLL-SASS-CONVERTER
+
+sass:
+  implementation: sass-embedded
+  style: compressed
+  sourcemap: never
+
+################################# JEKYLL-ARCHIVES
+
+jekyll-archives:
+  layouts:
+    category: archive-item
+    tag: archive-item
+  enabled:
+    - categories
+    - tags
+  permalinks:
+    category: /:name/
+    tag: /tag/:name/
+  slug_mode: latin
+
+################################# FILES TO INCLUDE/EXCLUDE FROM BUILD
+
+include:
+  - _pages/
+
+exclude:
+  - vendor/
+  - vendor.noindex/
+  - bin/
+  - "*.gemspec"
+  - README.md
+  - LICENSE
+  - node_modules/
+  - package*.json
+  - gulpfile.js
+  - .vscode/
+  - Gemfile
+  - Gemfile.lock
+
+################################# DEFAULTS (AUTOMATICALLY ADDED TO FRONT MATTER)
+
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      image:
+        path: "/assets/img/papicu-blue-square-512.png"
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      image:
+        path: "/assets/img/papicu-blue-square-512.png"
+
+################################# SLUGS
+
+permalink: /:slugified_categories/:title/
+
+slugify_mode: latin
+
+################################# BASE URL
+
+baseurl: ""
+
+################################# LAYOUT LIQUID-BASED MINIFIERS
+
+liquid_minifiers:
+  html: false
+  js: false

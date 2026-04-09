@@ -1,0 +1,33 @@
+---
+layout: html_minifier
+---
+
+{% comment %} https://github.com/jekyll/jekyll-redirect-from {% endcomment %}
+
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="refresh" content="0; url={{ page.redirect.to }}">
+  <meta name="robots" content="noindex">
+
+  <title>Redirecting &hellip;</title>
+
+  <link rel="stylesheet" href="{{ "/assets/css/papicu.noncode.min.css" | relative_url }}">
+
+  <link rel="canonical" href="{{ page.redirect.to }}">
+
+  {% include analytics.html %}
+
+  <script>location = "{{ page.redirect.to }}"</script>
+</head>
+
+<body>
+  <h1>Redirecting &hellip;</h1>
+  <p>
+    <a href="{{ page.redirect.to }}">Click here if you are not redirected.</a>
+  </p>
+</body>
+
+</html>
