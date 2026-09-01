@@ -1,0 +1,25 @@
+title: perdroluvas
+email: seu@email.com
+description: >-
+  Meu site pessoal feito com Jekyll e Minima :D
+baseurl: ""
+url: "https://perdroluvas.github.io"
+theme: minima
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Configuração do Minima
+minima:
+  skin: auto # classic, dark ou auto
+  date_format: "%b %-d, %Y"
+  social_links:
+    github: perdroluvas
+
+author:
+  name: perdroluvas
+
+# Build
+markdown: kramdown
+permalink: /:year/:month/:day/:title/
